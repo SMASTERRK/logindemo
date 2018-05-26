@@ -1,0 +1,40 @@
+<p>
+  <mat-card >
+    <div class="example-container">
+      <div style="width:800px; margin:0 auto;">
+        <tr>
+          <td>
+            <button mat-raised-button matTooltip="Enter the User Name" aria-label="Button that displays a tooltip in various positions">
+              Login Id
+            </button>
+          </td>
+          <td>
+            <mat-form-field>
+              <input matInput [(ngModel)]="username" required>
+            </mat-form-field>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <button mat-raised-button matTooltip="Enter the Password" aria-label="Button that displays a tooltip in various positions">
+              Password
+            </button>
+          </td>
+          <td>
+            <mat-form-field>
+
+              <input matInput type="password" [(ngModel)]="password" required>
+            </mat-form-field>
+          </td>
+        </tr>
+        {{errorMsg}}
+      </div>
+      <div class="container">
+        <div class="btn-holder">
+          <button mat-raised-button color="primary"  (click)='submit()'>Submit</button>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</p>

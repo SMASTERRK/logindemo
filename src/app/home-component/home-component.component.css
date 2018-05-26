@@ -1,0 +1,17 @@
+
+  .container {
+    justify-content: space-between;
+    flex-direction: column;
+    height: 10vh;
+    display: flex;
+  }
+  .container .btn-holder {
+    justify-content: flex-end;
+    display: flex;
+  }
+  .flex-class {
+    flex: 1 1 auto;
+  }
+.mat-toolbar-class{
+    color:white;
+}
