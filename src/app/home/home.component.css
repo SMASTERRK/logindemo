@@ -1,0 +1,20 @@
+table {
+  width: 100%;
+  text-align: center;
+}
+
+button {
+  margin: 16px 8px;
+  font-family: tahoma;
+  margin-top: 0.5px;
+  margin-right: 2px;
+  position:absolute;
+  top:0;
+  right:0;
+}
+
+mat-card {
+    min-width: 800px;
+    margin: 2em auto;
+    text-align: center;
+  }

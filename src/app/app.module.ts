@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { HomeComponentComponent } from './home-component/home-component.component';
-import { LoginComponentComponent } from './login-component/login-component.component';
+import { RegisterComponent } from './register-component/register-component.component';
+import { LoginComponent } from './login-component/login-component.component';
+import { HomeComponent } from './home/home.component';
+
 import { RouterModule } from '@angular/Router';
 import {
   MatAutocompleteModule,
@@ -44,23 +46,30 @@ import {
   MatTooltipModule,
   MatTreeModule,
 } from '@angular/material';
-
+import { AuthService } from './services/AuthService';
+import { AdminAccessComponent } from './admin-access/admin-access.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponentComponent,
-    LoginComponentComponent
+    RegisterComponent,
+    LoginComponent,
+    HomeComponent,
+    AdminAccessComponent
   ],
   imports: [
     BrowserAnimationsModule,
+    HttpClientModule,
     FormsModule, ReactiveFormsModule,
     BrowserModule,
     RouterModule.forRoot([
-      { path: 'home', component: HomeComponentComponent },
-      { path: '**', component: LoginComponentComponent },
-      { path: 'login', component: LoginComponentComponent }
-    ]),
+      { path: 'adminaccess', component: AdminAccessComponent },
+      { path: 'register', component: RegisterComponent },
+      { path: 'home', component: HomeComponent },
+      { path: '**', component: LoginComponent },
+      { path: 'login', component: LoginComponent }
+    ],{ enableTracing: true }),
     MatAutocompleteModule,
     MatBadgeModule,
     MatBottomSheetModule,
@@ -100,7 +109,7 @@ import {
   exports: [
     RouterModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

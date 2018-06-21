@@ -1,0 +1,50 @@
+<div class="example-container">
+    <mat-tab-group>
+        <mat-tab label="Add Score">
+            <mat-card>
+                    <button class="logout-button" mat-raised-button (click)="onLogout()" color="primary">LogOut</button>
+                <mat-card-content>
+                    <h3> Adding the Score Details </h3>
+                    <mat-form-field class="full-width-input">
+                        <input matInput [(ngModel)]="register.name" placeholder="Name" required>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width-input">
+                        <input matInput [(ngModel)]="register.userId" placeholder="UserId" required>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width-input">
+                        <mat-select placeholder="Module" [(ngModel)]="register.module" required>
+                            <mat-option value="Module 1">Module 1</mat-option>
+                            <mat-option value="Module 2">Module 2</mat-option>
+                            <mat-option value="Module 3">Module 3</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width-input">
+                        <input matInput [(ngModel)]="register.score" placeholder="Score" required>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width-input">
+                        <mat-select placeholder="Status" [(ngModel)]="register.status" required>
+                            <mat-option value="Status 1">Status 1</mat-option>
+                            <mat-option value="Status 2">Status 2</mat-option>
+                            <mat-option value="Status 3">Status 3</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div>
+                        <td>
+                            <button mat-raised-button (click)="onSubmit()" color="primary">Submit</button>
+                        </td>
+                        <td>
+                            <button mat-raised-button (click)="onCancel()" color="primary">Cancel</button>
+                        </td>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </mat-tab>
+        <mat-tab label="View Score">
+            <view-score></view-score>
+        </mat-tab>
+    </mat-tab-group>
+</div>

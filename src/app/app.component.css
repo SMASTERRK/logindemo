@@ -4,3 +4,7 @@
 .mat-toolbar-class{
     color:white;
 }
+.mat-toolbar.mat-primary {
+    background: mediumseagreen;
+    color: white;
+}

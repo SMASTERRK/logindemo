@@ -1,40 +1,23 @@
-<p>
-  <mat-card >
-    <div class="example-container">
-      <div style="width:800px; margin:0 auto;">
-        <tr>
-          <td>
-            <button mat-raised-button matTooltip="Enter the User Name" aria-label="Button that displays a tooltip in various positions">
-              Login Id
-            </button>
-          </td>
-          <td>
-            <mat-form-field>
-              <input matInput [(ngModel)]="username" required>
-            </mat-form-field>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <button mat-raised-button matTooltip="Enter the Password" aria-label="Button that displays a tooltip in various positions">
-              Password
-            </button>
-          </td>
-          <td>
-            <mat-form-field>
-
-              <input matInput type="password" [(ngModel)]="password" required>
-            </mat-form-field>
-          </td>
-        </tr>
-        {{errorMsg}}
-      </div>
-      <div class="container">
-        <div class="btn-holder">
-          <button mat-raised-button color="primary"  (click)='submit()'>Submit</button>
-        </div>
-      </div>
-    </div>
+<div class="signin-content">
+  <mat-card>
+    <mat-card-content>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <p>Please login to continue</p>
+        <mat-form-field class="full-width-input">
+          <input matInput placeholder="User" formControlName="userName" required>
+          <mat-error *ngIf="isFieldInvalid('userName')">
+            Please inform your user name
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <input matInput type="password" placeholder="Password" formControlName="password" required>
+          <mat-error *ngIf="isFieldInvalid('userName')">
+            Please inform your password
+          </mat-error>
+        </mat-form-field>
+          <div>{{errorMsg}}</div>
+        <button mat-raised-button color="primary">Login</button>
+      </form>
+    </mat-card-content>
   </mat-card>
-</p>
+</div>
