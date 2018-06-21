@@ -27,3 +27,13 @@ td {
   top:1;
   right:0;
 }
+.flex-class {
+  flex: 1 1 auto;
+}
+.mat-toolbar-class{
+  color:white;
+}
+.mat-toolbar.mat-primary {
+  background: mediumseagreen;
+  color: white;
+}

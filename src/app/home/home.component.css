@@ -18,4 +18,14 @@ mat-card {
     margin: 2em auto;
     text-align: center;
   }
+  .flex-class {
+    flex: 1 1 auto;
+  }
+.mat-toolbar-class{
+    color:white;
+}
+.mat-toolbar.mat-primary {
+    background: mediumseagreen;
+    color: white;
+}
   

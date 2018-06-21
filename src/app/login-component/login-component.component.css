@@ -36,3 +36,13 @@ mat-card {
 .full-width-input {
   width: 100%;
 }
+.flex-class {
+  flex: 1 1 auto;
+}
+.mat-toolbar-class{
+  color:white;
+}
+.mat-toolbar.mat-primary {
+  background: mediumseagreen;
+  color: white;
+}

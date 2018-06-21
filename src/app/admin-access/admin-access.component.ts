@@ -33,6 +33,9 @@ export class AdminAccessComponent implements OnInit {
     this.errorMsg = 'Successfully added the new user ';
 
   }
+  onScoreScreen(){
+    this.router.navigateByUrl('register');
+  }
   onLogout() {
     this.router.navigateByUrl('login');
   }

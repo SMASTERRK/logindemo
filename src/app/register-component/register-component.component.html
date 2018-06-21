@@ -1,8 +1,22 @@
-<div class="example-container">
+<mat-toolbar color="primary">
+        <mat-toolbar-row>
+          <span>Score Application</span>
+          <span class="example-spacer"></span>
+          <button class="logout-button" mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="onLogout()">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>logout</span>
+        </button>
+      </mat-menu>
+        </mat-toolbar-row>
+      </mat-toolbar>
+    <div class="example-container">
     <mat-tab-group>
         <mat-tab label="Add Score">
             <mat-card>
-                    <button class="logout-button" mat-raised-button (click)="onLogout()" color="primary">LogOut</button>
                 <mat-card-content>
                     <h3> Adding the Score Details </h3>
                     <mat-form-field class="full-width-input">
