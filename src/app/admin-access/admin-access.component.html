@@ -1,3 +1,64 @@
-<p>
-  admin-access works!
-</p>
+<div class="example-container">
+  <mat-tab-group>
+    <mat-tab label="Admin Access">
+      <mat-card>
+        <button class="logout-button" mat-raised-button (click)="onLogout()" color="primary">LogOut</button>
+        <mat-card-content>
+          <div class="full-width-input">
+            <table>
+              <tr>
+                <td>
+                  Insert the file path : </td>
+                <td>
+                  <input type="file" [(ngModel)]="inputfile" required>
+                </td>
+              </tr>
+            </table>
+          </div>
+          {{errorMsg}}
+          <h3> Adding the User Details </h3>
+          <mat-form-field class="full-width-input">
+            <input matInput [(ngModel)]="addUser.id" placeholder="User Id" required>
+          </mat-form-field>
+
+          <mat-form-field class="full-width-input">
+            <input matInput [(ngModel)]="addUser.name" placeholder="Full Name" required>
+          </mat-form-field>
+
+          <mat-form-field class="full-width-input">
+            <input type="email" matInput [(ngModel)]="addUser.email" placeholder="Email" required>
+          </mat-form-field>
+          <div>
+            <td>
+              <button mat-raised-button (click)="onSubmit()" color="primary">Submit</button>
+            </td>
+            <td>
+              <button mat-raised-button (click)="onCancel()" color="primary">Cancel</button>
+            </td>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-tab>
+    <mat-tab label="View Users">
+      <div class="refresh-button">
+        <button mat-raised-button (click)="onRefresh()" color="primary" class="mat-elevation-z8">
+          Refresh View</button>
+      </div>
+      <mat-card>
+        <mat-card-content>
+
+          <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">
+              <mat-header-cell *matHeaderCellDef> {{column}}</mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element[column]}}</mat-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="displayedColumns">
+            </mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;">
+            </mat-row>
+          </mat-table>
+        </mat-card-content>
+      </mat-card>
+    </mat-tab>
+  </mat-tab-group>
+</div>

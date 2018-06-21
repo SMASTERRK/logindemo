@@ -14,16 +14,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.displayedColumns = ['position', 'name', 'weight', 'symbol'];
     this.dataSource = ELEMENT_DATA;
-    let url = 'http://localhost:8080/spring-mvc-db/user/getScore';
-    // this.http.get(url, null).subscribe(data => {
-    //   let jsonstring = JSON.stringify(data);
-    //   let jsonObject = JSON.parse(jsonstring);
-    //   this.dataSource = jsonObject;
-    //   let values = Object.values(jsonObject);
-    //   if (values.length > 0) {
-    //     this.displayedColumns = Object.keys(values[0]);
-    //   }
-    // });
+    this.onRefresh();
   }
   onRefresh(){
     let url = 'http://localhost:8080/spring-mvc-db/user/getScore';
