@@ -1,82 +1,87 @@
-<mat-toolbar color="primary">
+<mat-sidenav-container class="example-container" autosize>
+  <mat-sidenav #sidenav class="example-sidenav" mode="over">
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <span>Add Addition Details</span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <div class="full-width-input">
+      <table>
+        <tr>
+          <td>
+            Insert the file path : </td>
+          <td>
+            <input type="file" [(ngModel)]="inputfile" required>
+          </td>
+        </tr>
+      </table>
+    </div>
+    {{errorMsg}}
+    <h3> Adding the User Details </h3>
+    <mat-form-field class="full-width-input">
+      <input matInput [(ngModel)]="addUser.id" placeholder="User Id" required>
+    </mat-form-field>
+
+    <mat-form-field class="full-width-input">
+      <input matInput [(ngModel)]="addUser.name" placeholder="Full Name" required>
+    </mat-form-field>
+
+    <mat-form-field class="full-width-input">
+      <input type="email" matInput [(ngModel)]="addUser.email" placeholder="Email" required>
+    </mat-form-field>
+    <div>
+      <td>
+        <button mat-raised-button (click)="onSubmit(); sidenav.close();" color="primary">Submit</button>
+      </td>
+      <td>
+        <button mat-raised-button (click)="onCancel()" color="primary">Cancel</button>
+      </td>
+    </div>
+  </mat-sidenav>
+  <mat-toolbar color="primary">
     <mat-toolbar-row>
+      <div class="example-sidenav-content">
+        <button type="button" mat-button (click)="sidenav.open(); ngOnInit();">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
       <span>Score Application</span>
       <span class="example-spacer"></span>
       <button mat-icon-button [matMenuTriggerFor]="menu">
-    <mat-icon>more_vert</mat-icon>
-  </button>
-  <mat-menu #menu="matMenu">
-       <button mat-menu-item (click)="onScoreScreen()">
-      <mat-icon>rowing</mat-icon>
-      <span>Score Screen</span>
-    </button>
-    <button mat-menu-item (click)="onLogout()">
-      <mat-icon>exit_to_app</mat-icon>
-      <span>logout</span>
-    </button>
-  </mat-menu>
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="onScoreScreen()">
+          <mat-icon>rowing</mat-icon>
+          <span>Score Screen</span>
+        </button>
+        <button mat-menu-item (click)="onRefresh()">
+            <mat-icon>cached</mat-icon>
+            <span>Refresh View</span>
+          </button>
+          <button mat-menu-item (click)="onLogout()">
+            <mat-icon>exit_to_app</mat-icon>
+            <span>logout</span>
+          </button>  
+      </mat-menu>
     </mat-toolbar-row>
   </mat-toolbar>
-<div class="example-container">
-  <mat-tab-group>
-    <mat-tab label="Admin Access">
-      <mat-card>
-        <mat-card-content>
-          <div class="full-width-input">
-            <table>
-              <tr>
-                <td>
-                  Insert the file path : </td>
-                <td>
-                  <input type="file" [(ngModel)]="inputfile" required>
-                </td>
-              </tr>
-            </table>
-          </div>
-          {{errorMsg}}
-          <h3> Adding the User Details </h3>
-          <mat-form-field class="full-width-input">
-            <input matInput [(ngModel)]="addUser.id" placeholder="User Id" required>
-          </mat-form-field>
+  <div flex>
+    <mat-card>
+      <mat-card-content>
 
-          <mat-form-field class="full-width-input">
-            <input matInput [(ngModel)]="addUser.name" placeholder="Full Name" required>
-          </mat-form-field>
+        <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">
+            <mat-header-cell *matHeaderCellDef> {{column}}</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element[column]}}</mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns">
+          </mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;">
+          </mat-row>
+        </mat-table>
+      </mat-card-content>
+    </mat-card>
+  </div>
 
-          <mat-form-field class="full-width-input">
-            <input type="email" matInput [(ngModel)]="addUser.email" placeholder="Email" required>
-          </mat-form-field>
-          <div>
-            <td>
-              <button mat-raised-button (click)="onSubmit()" color="primary">Submit</button>
-            </td>
-            <td>
-              <button mat-raised-button (click)="onCancel()" color="primary">Cancel</button>
-            </td>
-          </div>
-        </mat-card-content>
-      </mat-card>
-    </mat-tab>
-    <mat-tab label="View Users">
-      <div class="refresh-button">
-        <button mat-raised-button (click)="onRefresh()" color="primary" class="mat-elevation-z8">
-          Refresh View</button>
-      </div>
-      <mat-card>
-        <mat-card-content>
-
-          <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-            <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">
-              <mat-header-cell *matHeaderCellDef> {{column}}</mat-header-cell>
-              <mat-cell *matCellDef="let element"> {{element[column]}}</mat-cell>
-            </ng-container>
-            <mat-header-row *matHeaderRowDef="displayedColumns">
-            </mat-header-row>
-            <mat-row *matRowDef="let row; columns: displayedColumns;">
-            </mat-row>
-          </mat-table>
-        </mat-card-content>
-      </mat-card>
-    </mat-tab>
-  </mat-tab-group>
-</div>
+</mat-sidenav-container>

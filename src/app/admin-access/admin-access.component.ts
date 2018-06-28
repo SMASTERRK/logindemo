@@ -3,6 +3,7 @@ import { AddUserDetails } from './user';
 import { Router } from '@angular/Router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-admin-access',
@@ -23,7 +24,7 @@ export class AdminAccessComponent implements OnInit {
   }
   onSubmit() {
     console.log(this.addUser.name, this.addUser.id);
-    this.router.navigateByUrl('home');
+    //this.router.navigateByUrl('adminaccess');
     let url = 'http://localhost:8080/spring-mvc-db/user/add';
     // this.http.post(url, {
     //   "id": this.addUser.id,

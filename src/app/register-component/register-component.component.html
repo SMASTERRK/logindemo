@@ -6,10 +6,14 @@
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="onLogout()">
-          <mat-icon>exit_to_app</mat-icon>
-          <span>logout</span>
-        </button>
+        <button mat-menu-item (click)="onAdminScreen()">
+            <mat-icon>rowing</mat-icon>
+            <span>Admin Access</span>
+          </button>
+          <button mat-menu-item (click)="onLogout()">
+            <mat-icon>exit_to_app</mat-icon>
+            <span>logout</span>
+          </button>  
       </mat-menu>
         </mat-toolbar-row>
       </mat-toolbar>

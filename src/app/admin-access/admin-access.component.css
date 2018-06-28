@@ -19,13 +19,20 @@ mat-card {
 .example-container {
     display: flex;
     flex-direction: column;
+    height:100vh;
+    flex: 1 1 auto;
+  }
+  .mat-sidenav-content {
+    display: flex;
+    flex: 1 1 auto;
+  }
+  .mat-sidenav-container {
+    display: flex;
   }
   td {
     padding-right: 20px;
   }​
-  .example-container > * {
-    width: 100%;
-  }
+ 
   .logout-button {
     margin: 10px 8px;
     font-family: tahoma;
@@ -55,3 +62,7 @@ mat-card {
     background: mediumseagreen;
     color: white;
   }
+
+
+  
+  

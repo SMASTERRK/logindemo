@@ -44,5 +44,9 @@ export class RegisterComponent implements OnInit {
     this.router.navigateByUrl('register');
   }
 
+  onAdminScreen(){
+    this.router.navigateByUrl('adminaccess');
+  }
+
 }
 
